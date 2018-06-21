@@ -1,0 +1,263 @@
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace PBD
+{
+    class Numbers
+    { 
+        public static void firstclass()
+        {
+     
+            int pwr = 0;
+
+             Console.WriteLine("## only work 1 for each entered Draw Number## enter the Draw Number below");
+             int dr = Convert.ToInt32(Console.ReadLine());
+             Console.WriteLine("you entered " + dr);
+
+           
+            Stopwatch sw = new Stopwatch();
+
+            sw.Start();
+
+            PB.draw();
+
+            for (pwr = 0; pwr < 5; pwr++)
+
+            { 
+                Random num = new Random();
+
+                int a = 0;
+
+                int pick = num.Next(1,69);
+
+                var first = new List<int>();
+
+                for (a = 0; a < dr; a++)
+                {
+                    int f = num.Next(1, 69);
+
+                    first.Add(f);
+                }
+
+
+                int b = 0;
+
+                var second = new List<int>();
+
+                for (b = 0; b < dr; b ++)
+
+                {
+                    int s = num.Next(1, 69);
+                    second.Add(s);
+                }
+
+
+                int c = 0;
+
+                var third = new List<int>();
+
+                for (c = 0; c < dr; c++)
+
+                {
+                    int t = num.Next(1, 69);
+                    third.Add(t);
+                }
+
+
+                int d = 0;
+
+                var four = new List<int>();
+
+                for (d = 0; d < dr; d++)
+
+                {
+                    int fo = num.Next(1, 69);
+
+                    four.Add(fo);
+                }
+
+                int e = 0;
+
+                var five = new List<int>();
+
+                for (e = 0; e < dr; e++)
+
+                {
+                    int fi = num.Next(1, 69);
+
+                    five.Add(fi);
+                }
+
+
+                int fe = 0;
+
+                var po = new List<int>();
+
+                for (fe = 0; fe < dr; fe++)
+
+                {
+                    int p = num.Next(1, 26);
+                    po.Add(p);
+                }
+
+                //work number
+                int counter = 0;
+                int longestOccurance = 0;
+                int mostFrequentNumber = 0;
+
+                for (int i = 0; i < first.Count; i++)
+                {
+                    counter = 0;
+
+                    for (int j = 0; j < first.Count; j++)
+                    {
+                        if (first[j] == first[i])
+                        {
+                            counter++;
+                        }
+                    }
+
+                    if (counter > longestOccurance)
+                    {
+                        longestOccurance = counter;
+                        mostFrequentNumber = first[i];
+                    }
+                }
+
+                int scounter = 0;
+                int slongestOccurance = 0;
+                int smostFrequentNumber = 0;
+
+                for (int i = 0; i < second.Count; i++)
+                {
+                    scounter = 0;
+
+                    for (int j = 0; j < second.Count; j++)
+                    {
+                        if (second[j] == second[i])
+                        {
+                            scounter++;
+                        }
+                    }
+
+                    if (scounter > slongestOccurance)
+                    {
+                        slongestOccurance = scounter;
+                        smostFrequentNumber = second[i];
+                    }
+                }
+
+                int tcounter = 0;
+                int tlongestOccurance = 0;
+                int tmostFrequentNumber = 0;
+
+                for (int i = 0; i < third.Count; i++)
+                {
+                    tcounter = 0;
+
+                    for (int j = 0; j < third.Count; j++)
+                    {
+                        if (third[j] == third[i])
+                        {
+                            tcounter++;
+                        }
+                    }
+
+                    if (tcounter > tlongestOccurance)
+                    {
+                        tlongestOccurance = tcounter;
+                        tmostFrequentNumber = third[i];
+                    }
+                }
+
+                int fcounter = 0;
+                int flongestOccurance = 0;
+                int fmostFrequentNumber = 0;
+
+                for (int i = 0; i < four.Count; i++)
+                {
+                    fcounter = 0;
+
+                    for (int j = 0; j < four.Count; j++)
+                    {
+                        if (four[j] == four[i])
+                        {
+                            fcounter++;
+                        }
+                    }
+
+                    if (fcounter > flongestOccurance)
+                    {
+                        flongestOccurance = fcounter;
+                        fmostFrequentNumber = four[i];
+                    }
+                }
+
+                int ficounter = 0;
+                int filongestOccurance = 0;
+                int fimostFrequentNumber = 0;
+
+                for (int i = 0; i < five.Count; i++)
+                {
+                    ficounter = 0;
+
+                    for (int j = 0; j < five.Count; j++)
+                    {
+                        if (five[j] == five[i])
+                        {
+                            ficounter++;
+                        }
+                    }
+
+                    if (ficounter > filongestOccurance)
+                    {
+                        filongestOccurance = ficounter;
+                        fimostFrequentNumber = five[i];
+                    }
+                }
+
+                int pcounter = 0;
+                int plongestOccurance = 0;
+                int pmostFrequentNumber = 0;
+
+                for (int i = 0; i < po.Count; i++)
+                {
+                    pcounter = 0;
+
+                    for (int j = 0; j < po.Count; j++)
+                    {
+                        if (po[j] == po[i])
+                        {
+                            pcounter++;
+                        }
+                    }
+
+                    if (pcounter > plongestOccurance)
+                    {
+                        plongestOccurance = pcounter;
+                        pmostFrequentNumber = po[i];
+                    }
+                }
+
+                Console.WriteLine(mostFrequentNumber.ToString("00") + " " + smostFrequentNumber.ToString("00") + " " + tmostFrequentNumber.ToString("00") + " " + fmostFrequentNumber.ToString("00") + " " + fimostFrequentNumber.ToString("00") + " PB " + pmostFrequentNumber.ToString("00"));
+                //Console.WriteLine($"occured {longestOccurance} times");
+            }
+
+            sw.Stop();
+
+            TimeSpan ts = sw.Elapsed;
+
+            // Format and display the TimeSpan value.
+            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
+            Console.WriteLine();
+            Console.WriteLine("RunTime " + elapsedTime);
+
+            Console.ReadLine();
+        }
+
+    }
+}
