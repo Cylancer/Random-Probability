@@ -1,0 +1,103 @@
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+
+namespace PBD
+{
+    class PB
+    {
+   
+        public static void draw()
+        {
+            StreamWriter SW;
+
+            Random num = new Random();
+      
+            int i = 0 ;
+
+            //  for (int a=1; a < 1000; a++)
+            List<string> report = new List<string>();
+
+            {
+                int endnum = 40 ;
+
+
+                for (i = 0; i < 1; i++)
+
+                {
+                    int first = num.Next(1, endnum);
+
+                    int second = num.Next(1, endnum);
+
+                    while (second == first)
+
+                        second = num.Next(1, endnum);
+
+                    int third = num.Next(1, endnum);
+
+                    while (third == first || third == second)
+
+                        third = num.Next(1, endnum);
+
+                    int four = num.Next(1, endnum);
+
+                    while (four == first || four == second || four == third)
+
+                        four = num.Next(1, endnum);
+
+                    int five = num.Next(1, endnum);
+
+                    while (five == first || five == second || five == third | five == four)
+
+                        five = num.Next(1, endnum);
+
+                    int powernum = num.Next(1, endnum);
+
+                    while (powernum == first || powernum == second || powernum == third | powernum == four || powernum == five)
+
+                        five = num.Next(1, endnum);
+
+                    string[] LuckyNumber = { first.ToString("00") + " " + second.ToString("00") + " " + third.ToString("00") + " " + four.ToString("00") + " " + five.ToString("00") + " " + powernum.ToString("00") };
+
+                    report.AddRange(LuckyNumber);
+
+                    Console.WriteLine(first.ToString("00") + " " + second.ToString("00") + " " + third.ToString("00") + " " + four.ToString("00") + " " + five.ToString("00") + " " + powernum.ToString("00"));
+
+                }
+            }
+            if (!File.Exists("logfile.txt"))
+
+            {
+                SW = new StreamWriter("logfile.txt");
+            }
+
+            else
+
+            {
+                SW = File.AppendText("logfile.txt");
+            }
+
+            // Write to the file:
+
+            SW.WriteLine(DateTime.Now);
+
+            foreach (string Line in report)
+
+           {
+                SW.WriteLine(Line);
+           }
+
+            SW.WriteLine("******************************************");
+
+            Console.WriteLine("*************************************************************");
+
+            Console.WriteLine();
+
+        }
+
+    }
+}
